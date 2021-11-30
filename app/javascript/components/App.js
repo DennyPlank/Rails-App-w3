@@ -14,6 +14,9 @@ const getBooks = async () => {
   let response = await axios.get("/books");
   setBooks(response.data)
 }
+const addbook = (book) => {
+  setBooks([book, ...books]);
+}
   const toggleNewForm = () => {
     setShowNewForm(!showNewForm);
   }
@@ -23,7 +26,7 @@ const getBooks = async () => {
       <button onClick={toggleNewForm}>
         {showNewForm ? "Cancle" : "New Book"} 
       </button>
-      {showNewForm && <BookForm />}
+      {showNewForm && <BookForm addBook={addbook} />}
       <Books books={books} />
     </div>
   );
