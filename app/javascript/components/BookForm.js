@@ -12,7 +12,7 @@ const BookForm = (props) => {
     // console.log({title: title, author: author});
     let response = await axios.post('./books', book);
     // console.log(response.data)
-    props.addBook
+    addBook(response.data);
   }  
   return (
     <div style={styles.container}> 
